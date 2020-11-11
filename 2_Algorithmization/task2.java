@@ -1,5 +1,9 @@
+import java.sql.Array;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
+
+import static java.lang.StrictMath.ceil;
 
 public class task2 {
 
@@ -359,5 +363,201 @@ public class task2 {
             System.out.print(Arrays.deepToString(a));
         }
     }*/
-    
+
+    //task 2.7
+    /*
+    public static void main(String... arg){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите N: ");
+        int N=scanner.nextInt();
+        int calc=0;
+
+        double[][] a = new double[N][N];
+        for(int i=0; i<N;i++){
+            for(int j=0;j<N;j++){
+                double Arr=  Math.sin((Math.pow(i,2)-Math.pow(j,2))/N);
+                a[i][j]=Arr;
+
+                if(Arr>0){
+                    calc++;
+                }
+            }
+
+        }
+        System.out.println(calc);
+        System.out.print(Arrays.deepToString(a));
+
+    }*/
+
+    //task 2.8
+    /*
+    public static void main(String... arg){
+        // В числовой матрице поменять местами два столбца любых столбца, т. е. все элементы одного столбца поставить
+        //на соответствующие им позиции другого, а его элементы второго переместить в первый. Номера столбцов вводит
+        //пользователь с клавиатуры.
+
+        Scanner scanner=new Scanner(System.in);
+
+        int[][] a = {{1,2,8,5,6},
+                     {5,4,7,8,12},
+                     {1,4,8,5,6}};
+
+        System.out.println("Введите столбики: ");
+        int n=scanner.nextInt();
+        int m=scanner.nextInt();
+
+
+        for(int i=0; i<a.length; i++){
+
+            int calc=a[i][n];
+            a[i][n]=a[i][m];
+            a[i][m]=calc;
+        }
+
+        System.out.print(Arrays.deepToString(a));
+
+    }
+*/
+
+    //task 2.9
+    /*
+    public static void main(String... arg){
+        //Задана матрица неотрицательных чисел. Посчитать сумму элементов в каждом столбце. Определить, какой
+        //столбец содержит максимальную сумму.
+
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Введите кол-во столбиков: ");
+        int n=scanner.nextInt();
+        System.out.println("Введите кол-во строк: ");
+        int m=scanner.nextInt();
+
+
+        int a[][]=new int[n][m];
+        int sum[]=new int[m];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                a[i][j] = scanner.nextInt();
+                if(a[i][j]<0){
+                    System.out.println("invalid");
+                }
+            }
+        }
+
+        for(int e=0;e<a[0].length;e++)
+        {
+            for(int g=0;g<a.length;g++){
+                sum[e]+=a[g][e];
+            }
+        }
+        for (int u = 0; u < sum.length; u++) {
+            System.out.println(sum[u]);
+        }
+
+        int max=0;
+        for(int t=0;t<sum.length;t++){
+            if (sum[t]>max){
+                max = sum[t];
+            }
+        }
+        System.out.println("Максимальное значение: ");
+        System.out.println(max);
+
+    }*/
+
+    //task 2.10
+    /*
+    public static void main(String... arg){
+        // Найти положительные элементы главной диагонали квадратной матрицы
+
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Введите кол-во столбиков и строк: ");
+        int n=scanner.nextInt();
+
+        int a[][]= new int[n][n];
+
+        System.out.println("Введите значения матрицы: ");
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                a[i][j] = scanner.nextInt();
+            }
+        }
+
+        for(int e=0;e<a.length;e++){
+            for(int g=0;g<a.length;g++){
+                if(e==g && a[e][g]>0){
+                    System.out.println(a[e][g]);
+                }
+            }
+        }
+
+
+    }*/
+
+    //task 2.11
+    /*
+    public static void main(String... arg){
+        // Матрицу 10x20 заполнить случайными числами от 0 до 15. Вывести на экран саму матрицу и номера строк, в
+        //которых число 5 встречается три и более раз.
+        int a[][]=new int[10][20];
+        int s=0;
+        int c=15;
+        int rand=0;
+        int k=0;
+        for(int i=0;i<10;i++){
+            for(int j=0;j<20;j++){
+                rand=s+(int) (Math.random()*c);
+                a[i][j]=rand;
+                if(rand==5){
+                    k++;
+                }
+            }
+            if(k>=3){
+                System.out.println("Row "+i);
+                System.out.println(Arrays.toString(a[i]));
+            }
+            k=0;
+        }
+
+        System.out.print(Arrays.deepToString(a));
+    }*/
+
+    //task 2.12
+    /*
+    public static void main(String... arg){
+        // Отсортировать строки матрицы по возрастанию и убыванию значений элементов
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Кол-во строк: ");
+        int n=scanner.nextInt();
+        System.out.println("Кол-во столбиков: ");
+        int m=scanner.nextInt();
+
+        int a[][]=new int[n][m];
+
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a.length;j++){
+                a[i][j]=scanner.nextInt();
+            }
+        }
+        System.out.println("Не отсортированный массив: ");
+        System.out.println(Arrays.deepToString(a));
+
+        for(int g=0;g<a.length; g++){
+            Arrays.sort(a[g]);
+        }
+        System.out.println(Arrays.deepToString(a));
+
+        int tmp;
+        for (int e = 0; e < a.length; e++) {
+            for (int h = 0; h < ceil(a[e].length/2.0); h++) {
+                tmp = a[e][a[e].length-h-1];
+                a[e][a[e].length-h-1] = a[e][h];
+                a[e][h] = tmp;
+            }
+        }
+        System.out.println(Arrays.deepToString(a));
+
+    }*/
+
+
 }
