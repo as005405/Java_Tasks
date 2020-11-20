@@ -559,5 +559,145 @@ public class task2 {
 
     }*/
 
+    //task 2.13
+//------------------------
+    /*
+    public static void main(String... arg){
+        //Отсотрировать стобцы матрицы по возрастанию и убыванию значений эементов
+
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("Кол-во строк: ");
+        int n=scanner.nextInt();
+        System.out.println("Кол-во столбиков: ");
+        int m=scanner.nextInt();
+
+        int a[][]=new int[n][m];
+
+        for(int i=0;i<a.length;i++){
+            for(int j=0;j<a.length;j++){
+                a[i][j]=scanner.nextInt();
+            }
+        }
+        System.out.println("Не отсортированный массив: ");
+        System.out.println(Arrays.deepToString(a));
+
+        for(int g=0;g<a.length; g++){
+            for (int e = 0; e < a.length-1; e++) {
+                for (int h = 0; h < a.length - e -1; h++) {
+                    if (a[h][e]>a[h+1][e]){
+                        int tmp = a[h+1][e];
+                        a[h+1][e] = a[h][e];
+                        a[h][e] = tmp;
+                    }
+                }
+            }
+        }
+        System.out.println(Arrays.deepToString(a));
+
+    }*/
+
+
+    //task 2.14
+    /*
+    public static void main(String... arg){
+        //Сформировать случайную матрицу m x n, состоящую из нулей и единиц, причем в каждом столбце число
+        //единиц равно номеру столбца.
+
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Введите кол-во строк: ");
+        int n=scanner.nextInt();
+        System.out.println("столбиков: ");
+        int m = scanner.nextInt();
+
+
+        int a[][]= new int[n][m];
+
+
+
+       int[] number = new int[m];
+       for(int i =0; i<number.length;i++){
+           number[i]=i;
+       }
+
+       for(int i =0; i<n;i++){
+           for(int j=0; j<m;j++){
+               if(number[j]>0){
+                   a[i][j]=1;
+                   number[j]--;
+
+               }
+           }
+       }
+        System.out.println(Arrays.deepToString(a));
+
+    }*/
+
+    //task 2.15
+    /*
+    public static void main(String... arg){
+      //  Найдите наибольший элемент матрицы и заменить все нечетные элементы на него.
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Введите кол-во строк: ");
+        int n=scanner.nextInt();
+        System.out.println("Введите кол-во столбиков: ");
+        int m=scanner.nextInt();
+
+        int a[][]= new int[n][m];
+
+        System.out.println("Введите значения матрицы: ");
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                a[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.print(Arrays.deepToString(a));
+        System.out.println();
+        System.out.print("max value: ");
+
+        int max =Integer.MIN_VALUE;
+        for(int e=0; e<a.length; e++){
+            for(int g=0; g<a[e].length;g++){
+                if(a[e][g]>max){
+                    max=a[e][g];
+                }
+            }
+        }
+        System.out.println(max);
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(j%2==1){
+                    a[i][j]=max;
+                }
+            }
+        }
+
+        System.out.print(Arrays.deepToString(a));
+    }*/
+
+    //task 2.16
+    /*
+    public static void main(String... arg){
+        //Магическим квадратом порядка n называется квадратная матрица размера nxn, составленная из чисел 1, 2, 3,
+        //так, что суммы по каждому столбцу, каждой строке и каждой из двух больших диагоналей равны между
+        //собой. Построить такой квадрат. Пример магического квадрата порядка 3:
+
+        Scanner scanner= new Scanner(System.in);
+
+        int n=scanner.nextInt();
+
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                int row = (((n + 1) / 2 + i + j) % n);
+                int col = (((n + 1) / 2 + i + n - j - 1) % n) + 1;
+                System.out.print(((row * n) + col) + "\t");
+            }
+            System.out.println();
+        }
+
+    }*/
+
 
 }
